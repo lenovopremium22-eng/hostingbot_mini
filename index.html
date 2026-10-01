@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>NEXIUM HOST</title>
+<script src="https://telegram.org/js/telegram-web-app.js?63"></script>
+<style>
+:root{color-scheme:dark;--bg:#090b12;--card:#121622;--muted:#8992a5;--accent:#6d7cff;--line:#252b3a}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:#f7f8fb;font-family:Inter,system-ui,sans-serif}
+.wrap{max-width:760px;margin:auto;padding:20px 16px 36px}.top{display:flex;justify-content:space-between;align-items:center;margin-bottom:20px}
+.brand{font-weight:800;font-size:21px}.pill{padding:7px 10px;border:1px solid var(--line);border-radius:999px;color:#b9c0d0;font-size:12px}
+.hero{padding:22px;border:1px solid var(--line);border-radius:22px;background:linear-gradient(135deg,#151a2a,#0e111a);margin-bottom:14px}
+h1{font-size:28px;margin:0 0 7px}.muted{color:var(--muted)}.grid{display:grid;grid-template-columns:repeat(2,1fr);gap:10px;margin:14px 0}
+.card{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:16px}.label{color:var(--muted);font-size:12px}.value{font-size:22px;font-weight:800;margin-top:5px}
+button{border:0;border-radius:14px;padding:13px 15px;font-weight:750;background:var(--accent);color:white;cursor:pointer}
+.primary{width:100%;margin-top:8px}.bot{display:flex;justify-content:space-between;gap:10px;align-items:center}.status{font-size:12px;color:#8ff0ae}.actions{display:flex;gap:7px;flex-wrap:wrap}.actions button{background:#202638}
+</style>
+</head>
+<body>
+<main class="wrap">
+<div class="top"><div class="brand">⚡ NEXIUM HOST</div><div class="pill" id="user">Telegram</div></div>
+<section class="hero"><h1>Welcome back 👋</h1><div class="muted">Deploy and manage your Telegram bots from one place.</div><button class="primary" id="deploy">＋ Deploy New Bot</button></section>
+<div class="grid">
+<div class="card"><div class="label">Active Bots</div><div class="value">0</div></div>
+<div class="card"><div class="label">Online</div><div class="value">0</div></div>
+<div class="card"><div class="label">Storage</div><div class="value">0 MB</div></div>
+<div class="card"><div class="label">Balance</div><div class="value">$0.00</div></div>
+</div>
+<section class="card">
+<div class="bot"><div><b>🤖 No bots yet</b><div class="muted">Deploy your first bot to get started.</div></div><span class="status">READY</span></div>
+</section>
+</main>
+<script>
+const tg=window.Telegram?.WebApp;
+if(tg){tg.ready();tg.expand();const u=tg.initDataUnsafe?.user;if(u)document.querySelector("#user").textContent=u.username?("@"+u.username):u.first_name;}
+document.querySelector("#deploy").addEventListener("click",()=>alert("Deployment form: connect this button to POST /api/v1/deploy."));
+</script>
+</body>
+</html>
